@@ -128,7 +128,7 @@ function Hero() {
             </p>
 
             {/* buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 mb-7 animate-fade-in-up delay-300">
+            <div className="flex flex-col sm:flex-row gap-5 mb-7 animate-fade-in-up delay-300">
               <button
                 onClick={scrollToForm}
                 style={{ height: 52 }}
@@ -158,7 +158,11 @@ function Hero() {
                 </div>
               ))}
             </div>
-            <p className="font-golos text-sm text-[var(--brand-muted)] flex items-center gap-1.5 animate-fade-in-up delay-500">
+            {/* segmentation */}
+            <p className="font-golos text-[#6B7280] animate-fade-in-up delay-450" style={{ fontSize: 14, marginTop: 12 }}>
+              Подходит для: услуги • инфобизнес • B2B
+            </p>
+            <p className="font-golos text-sm text-[var(--brand-muted)] flex items-center gap-1.5 mt-3 animate-fade-in-up delay-500">
               <Icon name="Clock" size={14} className="text-[var(--brand-blue)]" />
               Отвечаем в Telegram в течение 10–15 минут
             </p>
@@ -350,14 +354,147 @@ function Portfolio() {
   );
 }
 
+/* ─── Landing Structure Preview ─────────────────────────────────────────── */
+function LandingStructure() {
+  const blocks = [
+    { icon: "Monitor",      label: "Первый экран (оффер)",  desc: "Заголовок, подзаголовок и кнопка призыва к действию" },
+    { icon: "Star",         label: "Преимущества",          desc: "Ключевые выгоды вашего продукта или услуги" },
+    { icon: "ClipboardList",label: "Описание услуги",       desc: "Подробное раскрытие того, что вы предлагаете" },
+    { icon: "Trophy",       label: "Кейсы",                 desc: "Примеры реализованных проектов и результаты" },
+    { icon: "MessageCircle",label: "Отзывы",                desc: "Социальные доказательства от реальных клиентов" },
+    { icon: "HelpCircle",   label: "FAQ",                   desc: "Ответы на частые вопросы и снятие возражений" },
+    { icon: "Mail",         label: "Форма заявки",          desc: "Простая форма для захвата контактов клиента" },
+  ];
+
+  return (
+    <section className="section-padding bg-white">
+      <div className="container-main">
+        <div className="text-center mb-12">
+          <p className="text-[var(--brand-blue)] font-montserrat font-semibold text-sm uppercase tracking-widest mb-3">Структура</p>
+          <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-[var(--brand-dark)]">
+            Как будет выглядеть ваш лендинг
+          </h2>
+          <p className="font-golos text-[var(--brand-muted)] mt-3 max-w-xl mx-auto">
+            Мы строим страницы по проверенной маркетинговой структуре, которая проводит посетителя от знакомства до заявки
+          </p>
+        </div>
+
+        <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
+          {/* left: visual mockup */}
+          <div className="flex-shrink-0 w-full lg:w-[340px]">
+            <div className="relative bg-white rounded-2xl border border-[var(--brand-border)] shadow-2xl overflow-hidden">
+              {/* browser bar */}
+              <div className="bg-gray-100 px-4 py-3 flex items-center gap-2 border-b border-[var(--brand-border)]">
+                <span className="w-3 h-3 rounded-full bg-red-400" />
+                <span className="w-3 h-3 rounded-full bg-yellow-400" />
+                <span className="w-3 h-3 rounded-full bg-green-400" />
+                <div className="flex-1 bg-white rounded-md h-5 ml-2 border border-gray-200 flex items-center px-2">
+                  <span className="font-golos text-[10px] text-gray-400 truncate">yoursite.ru</span>
+                </div>
+              </div>
+              {/* mockup blocks */}
+              <div className="p-4 flex flex-col gap-2">
+                {/* hero */}
+                <div className="bg-[var(--brand-blue)] rounded-lg p-4 text-white">
+                  <div className="h-2.5 bg-white/60 rounded-full w-3/4 mb-2" />
+                  <div className="h-2 bg-white/40 rounded-full w-1/2 mb-3" />
+                  <div className="h-7 bg-white/30 rounded-lg w-2/5" />
+                </div>
+                {/* advantages */}
+                <div className="grid grid-cols-3 gap-1.5">
+                  {[0,1,2].map((i) => (
+                    <div key={i} className="bg-blue-50 rounded-lg p-2.5">
+                      <div className="w-5 h-5 rounded bg-blue-200 mb-1.5" />
+                      <div className="h-1.5 bg-blue-200 rounded-full w-4/5 mb-1" />
+                      <div className="h-1.5 bg-blue-100 rounded-full w-3/5" />
+                    </div>
+                  ))}
+                </div>
+                {/* service desc */}
+                <div className="bg-gray-50 rounded-lg p-3 border border-[var(--brand-border)]">
+                  <div className="h-2 bg-gray-300 rounded-full w-1/3 mb-2" />
+                  <div className="flex flex-col gap-1">
+                    {[0,1,2].map((i) => <div key={i} className="h-1.5 bg-gray-200 rounded-full" style={{ width: `${75 + i * 10}%` }} />)}
+                  </div>
+                </div>
+                {/* cases + reviews */}
+                <div className="grid grid-cols-2 gap-1.5">
+                  <div className="bg-indigo-50 rounded-lg p-3">
+                    <div className="h-10 bg-indigo-100 rounded mb-1.5" />
+                    <div className="h-1.5 bg-indigo-200 rounded-full w-4/5" />
+                  </div>
+                  <div className="bg-gray-50 rounded-lg p-3 border border-[var(--brand-border)]">
+                    <div className="flex gap-0.5 mb-1.5">
+                      {[0,1,2,3,4].map((s) => <span key={s} className="text-yellow-400 text-[8px]">★</span>)}
+                    </div>
+                    <div className="h-1.5 bg-gray-200 rounded-full w-full mb-1" />
+                    <div className="h-1.5 bg-gray-200 rounded-full w-4/5" />
+                  </div>
+                </div>
+                {/* faq */}
+                <div className="bg-gray-50 rounded-lg p-3 border border-[var(--brand-border)]">
+                  {[0,1].map((i) => (
+                    <div key={i} className="flex items-center gap-2 py-1.5 border-b last:border-0 border-gray-200">
+                      <div className="h-2 bg-gray-300 rounded-full flex-1" />
+                      <div className="w-3 h-3 rounded-full bg-gray-200 shrink-0" />
+                    </div>
+                  ))}
+                </div>
+                {/* form */}
+                <div className="bg-[var(--brand-blue)]/10 rounded-lg p-3 border border-blue-200">
+                  <div className="h-2 bg-blue-200 rounded-full w-1/2 mb-2" />
+                  <div className="h-7 bg-white rounded-lg border border-blue-100 mb-1.5" />
+                  <div className="h-7 bg-white rounded-lg border border-blue-100 mb-2" />
+                  <div className="h-7 bg-[var(--brand-blue)] rounded-lg" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* right: list */}
+          <div className="flex-1 flex flex-col gap-3">
+            {blocks.map((b, i) => (
+              <div
+                key={b.label}
+                className="flex items-start gap-4 p-5 rounded-xl border border-[var(--brand-border)] bg-white hover:scale-[1.02] hover:shadow-md hover:border-blue-200 transition-all duration-200 cursor-default"
+              >
+                <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center shrink-0">
+                  <Icon name={b.icon} size={20} className="text-[var(--brand-blue)]" />
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center gap-2 mb-0.5">
+                    <span className="font-montserrat font-bold text-xs text-[var(--brand-blue)]">0{i + 1}</span>
+                    <h3 className="font-montserrat font-bold text-sm text-[var(--brand-dark)]">{b.label}</h3>
+                  </div>
+                  <p className="font-golos text-xs text-[var(--brand-muted)]">{b.desc}</p>
+                </div>
+              </div>
+            ))}
+
+            <button
+              onClick={scrollToForm}
+              className="mt-2 inline-flex items-center justify-center gap-2 bg-[var(--brand-blue)] text-white font-montserrat font-bold text-base px-7 rounded-xl shadow-lg shadow-blue-200 hover:bg-blue-700 hover:scale-[1.03] active:scale-95 transition-all duration-200"
+              style={{ height: 52 }}
+            >
+              Получить структуру лендинга
+              <Icon name="ArrowRight" size={18} />
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ─── Problems ───────────────────────────────────────────────────────────── */
 function Problems() {
   const errors = [
-    { title: "Нет структуры",          desc: "пользователь не понимает куда нажать" },
-    { title: "Слабый оффер",           desc: "не ясно, какую проблему решает продукт" },
-    { title: "Нет доверия",            desc: "отсутствуют отзывы и доказательства" },
-    { title: "Плохая мобильная версия", desc: "сайт неудобно использовать на телефоне" },
-    { title: "Медленная загрузка",     desc: "пользователь покидает страницу" },
+    { title: "Нет структуры",                    desc: "пользователь не понимает куда нажать" },
+    { title: "Слабый оффер",                     desc: "не ясно, какую проблему решает продукт" },
+    { title: "Нет доверия",                      desc: "отсутствуют отзывы и доказательства" },
+    { title: "Плохая мобильная версия",           desc: "сайт неудобно использовать на телефоне" },
+    { title: "Медленная загрузка",               desc: "пользователь покидает страницу" },
+    { title: "Нет понятного призыва к действию", desc: "пользователь не понимает, куда нажать и что сделать дальше" },
   ];
   return (
     <section
@@ -401,6 +538,7 @@ function Advantages() {
     { icon: "Zap",                title: "Быстрая загрузка сайта",             desc: "Оптимизация кода и изображений — напрямую влияет на конверсию и рекламу." },
     { icon: "TrendingUp",         title: "Подготовка сайта под рекламу",       desc: "Настройка целей, пикселей и форм для эффективной работы с Яндекс.Директ." },
     { icon: "LineChart",          title: "Аналитика и тестирование",           desc: "Яндекс.Метрика, настройка целей и A/B тестирование ключевых элементов." },
+    { icon: "RefreshCw",          title: "Тестирование и улучшение",           desc: "Анализ поведения пользователей и улучшение ключевых элементов страницы." },
   ];
   return (
     <section className="section-padding bg-[var(--brand-gray)]">
@@ -475,33 +613,165 @@ function Process() {
 }
 
 /* ─── Pricing ────────────────────────────────────────────────────────────── */
+type PlanFeatureSection = { label: string; items: string[] };
+type Plan = {
+  icon: string;
+  name: string;
+  price: string;
+  sub?: string;
+  subNote?: string;
+  desc: string;
+  sections: PlanFeatureSection[];
+  popular: boolean;
+};
+
+function PricingCard({ plan }: { plan: Plan }) {
+  const isPopular = plan.popular;
+  const textColor = isPopular ? "text-white" : "text-[var(--brand-dark)]";
+  const mutedColor = isPopular ? "text-blue-100" : "text-[var(--brand-muted)]";
+  const checkColor = isPopular ? "text-blue-200" : "text-[var(--brand-blue)]";
+  return (
+    <div
+      className={`rounded-2xl p-8 border flex flex-col hover:scale-[1.02] hover:shadow-2xl transition-all duration-300 ${
+        isPopular
+          ? "bg-[var(--brand-blue)] border-[var(--brand-blue)] shadow-xl shadow-blue-200"
+          : "bg-white border-[var(--brand-border)] hover:border-blue-200"
+      }`}
+    >
+      {isPopular && (
+        <div className="inline-flex items-center gap-1.5 bg-white/20 text-white text-xs font-montserrat font-semibold px-3 py-1 rounded-full mb-4 self-start">
+          <Icon name="Star" size={12} />
+          Популярный
+        </div>
+      )}
+      <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${isPopular ? "bg-white/20" : "bg-blue-50"}`}>
+        <Icon name={plan.icon} size={24} className={isPopular ? "text-white" : "text-[var(--brand-blue)]"} />
+      </div>
+      <h3 className={`font-montserrat font-bold text-xl mb-1 ${textColor}`}>Тариф «{plan.name}»</h3>
+      <p className={`font-golos text-sm mb-3 ${mutedColor}`}>{plan.desc}</p>
+      <p className={`font-montserrat font-black text-4xl mb-1 ${isPopular ? "text-white" : "text-[var(--brand-blue)]"}`}>{plan.price}</p>
+      {plan.sub && <p className={`font-golos text-xs mb-1 ${mutedColor}`}>{plan.sub}</p>}
+      {plan.subNote && <p className={`font-golos text-xs mb-4 font-semibold ${isPopular ? "text-blue-100" : "text-[var(--brand-muted)]"}`}>{plan.subNote}</p>}
+      {!plan.sub && <div className="mb-4" />}
+
+      <div className="flex flex-col gap-5 flex-1">
+        {plan.sections.map((section) => (
+          <div key={section.label}>
+            <p className={`font-montserrat font-bold text-xs uppercase tracking-wide mb-2 ${isPopular ? "text-blue-200" : "text-[var(--brand-blue)]"}`}>
+              {section.label}:
+            </p>
+            <ul className="flex flex-col gap-2">
+              {section.items.map((item) => (
+                <li key={item} className="flex items-start gap-2 font-golos text-sm">
+                  <Icon name="Check" size={14} className={`${checkColor} shrink-0 mt-0.5`} />
+                  <span className={isPopular ? "text-blue-50" : "text-[var(--brand-dark)]"}>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      <button
+        onClick={scrollToForm}
+        style={{ height: 48 }}
+        className={`mt-8 w-full font-montserrat font-bold rounded-xl shadow hover:scale-[1.03] active:scale-95 transition-all duration-200 ${
+          isPopular
+            ? "bg-white text-[var(--brand-blue)] hover:bg-blue-50"
+            : "bg-[var(--brand-blue)] text-white hover:bg-blue-700"
+        }`}
+      >
+        Заказать
+      </button>
+    </div>
+  );
+}
+
 function Pricing() {
-  const plans = [
+  const plans: Plan[] = [
     {
       icon: "Rocket",
       name: "Базовый",
-      price: "от 40 000 ₽",
-      desc: "Лендинг + дизайн",
-      features: ["Структура страницы", "Дизайн интерфейса", "Адаптация под мобильные", "Базовая SEO-оптимизация"],
+      price: "40 000 ₽",
+      desc: "Готовый лендинг под ключ",
       popular: false,
+      sections: [
+        {
+          label: "Включено",
+          items: [
+            "Разработка лендинга под ключ",
+            "Анализ ниши и конкурентов",
+            "Прототипирование структуры страницы",
+            "Дизайн для десктопа и мобильных устройств",
+            "Продающий копирайтинг",
+            "Базовая SEO-настройка (мета-теги, заголовки, структура)",
+            "Вёрстка и запуск лендинга",
+            "Проверка корректности работы на всех устройствах",
+            "Установка SSL-сертификата (HTTPS)",
+            "Оптимизация скорости загрузки страницы",
+            "Создание адаптивных изображений",
+            "Поддержка 3 дня после запуска",
+          ],
+        },
+      ],
     },
     {
       icon: "Zap",
       name: "Стандарт",
-      price: "от 60 000 ₽",
-      desc: "Структура + тексты + дизайн",
-      features: ["Структура страницы", "Продающие тексты", "Дизайн интерфейса", "Адаптация под мобильные", "Запуск сайта"],
+      price: "60 000 ₽",
+      desc: "Лендинг + Маркетинг",
       popular: true,
+      sections: [
+        {
+          label: "Включено",
+          items: ["Всё из тарифа «Базовый»"],
+        },
+        {
+          label: "Дополнительно",
+          items: [
+            "Подключение Яндекс Метрики",
+            "Настройка целей для кнопок и звонков",
+            "Установка Яндекс Вебмастера",
+            "Настройка рекламных кампаний в Яндекс Директ",
+            "Проверка передачи данных в Метрику",
+            "Настройка тепловых карт",
+            "Создание объявлений",
+            "Согласование ключевых слов",
+            "Поддержка 7 дней после запуска",
+          ],
+        },
+      ],
     },
     {
       icon: "Crown",
       name: "Премиум",
-      price: "от 80 000 ₽",
-      desc: "Лендинг под ключ",
-      features: ["Разработка под ключ", "Подключение аналитики", "Интеграции и CRM", "Расширенная поддержка"],
+      price: "80 000 ₽",
+      sub: "разовый запуск + 30 000 ₽ ежемесячное ведение",
+      subNote: "(10 000 ₽ — администрирование сайта, 20 000 ₽ — ведение контекстной рекламы)",
+      desc: "Полный цикл: сайт + маркетинг + ведение",
       popular: false,
+      sections: [
+        {
+          label: "Включено",
+          items: ["Всё из тарифа «Базовый»", "Всё из тарифа «Стандарт»"],
+        },
+        {
+          label: "Дополнительно",
+          items: [
+            "Постоянное ведение Яндекс Директ",
+            "Ежемесячная оптимизация рекламных кампаний",
+            "Постоянное администрирование проекта",
+            "Техническая поддержка на регулярной основе",
+            "Аналитика эффективности и ежемесячные рекомендации",
+            "Подключение домена и настройка хостинга",
+            "Мониторинг работы сервера и устранение технических сбоев",
+            "Еженедельные отчёты",
+          ],
+        },
+      ],
     },
   ];
+
   return (
     <section id="pricing" className="section-padding bg-[var(--brand-gray)]">
       <div className="container-main">
@@ -511,51 +781,7 @@ function Pricing() {
           <p className="font-golos text-[var(--brand-muted)] mt-3">Оплата по этапам. Работаем по договору.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
-          {plans.map((plan) => (
-            <div
-              key={plan.name}
-              className={`rounded-2xl p-8 border flex flex-col hover:scale-[1.03] hover:shadow-2xl transition-all duration-300 ${
-                plan.popular
-                  ? "bg-[var(--brand-blue)] border-[var(--brand-blue)] shadow-xl shadow-blue-200"
-                  : "bg-white border-[var(--brand-border)] hover:border-blue-200"
-              }`}
-            >
-              {plan.popular && (
-                <div className="inline-flex items-center gap-1.5 bg-white/20 text-white text-xs font-montserrat font-semibold px-3 py-1 rounded-full mb-4 self-start">
-                  <Icon name="Star" size={12} />
-                  Популярный
-                </div>
-              )}
-              <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${plan.popular ? "bg-white/20" : "bg-blue-50"}`}>
-                <Icon name={plan.icon} size={24} className={plan.popular ? "text-white" : "text-[var(--brand-blue)]"} />
-              </div>
-              <h3 className={`font-montserrat font-bold text-xl mb-1 ${plan.popular ? "text-white" : "text-[var(--brand-dark)]"}`}>
-                {plan.name}
-              </h3>
-              <p className={`font-golos text-sm mb-4 ${plan.popular ? "text-blue-100" : "text-[var(--brand-muted)]"}`}>{plan.desc}</p>
-              <p className={`font-montserrat font-black text-3xl mb-6 ${plan.popular ? "text-white" : "text-[var(--brand-dark)]"}`}>
-                {plan.price}
-              </p>
-              <ul className="flex flex-col gap-2.5 mb-8 flex-1">
-                {plan.features.map((f) => (
-                  <li key={f} className="flex items-center gap-2.5 font-golos text-sm">
-                    <Icon name="Check" size={15} className={plan.popular ? "text-blue-200" : "text-[var(--brand-blue)]"} />
-                    <span className={plan.popular ? "text-blue-50" : "text-[var(--brand-dark)]"}>{f}</span>
-                  </li>
-                ))}
-              </ul>
-              <button
-                onClick={scrollToForm}
-                className={`w-full font-montserrat font-bold py-3.5 rounded-xl shadow hover:scale-[1.03] active:scale-95 transition-all duration-200 ${
-                  plan.popular
-                    ? "bg-white text-[var(--brand-blue)] hover:bg-blue-50"
-                    : "bg-[var(--brand-blue)] text-white hover:bg-blue-700"
-                }`}
-              >
-                Заказать
-              </button>
-            </div>
-          ))}
+          {plans.map((plan) => <PricingCard key={plan.name} plan={plan} />)}
         </div>
       </div>
     </section>
@@ -610,8 +836,10 @@ function FAQ() {
 /* ─── Contact Form ───────────────────────────────────────────────────────── */
 function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
-  const [form, setForm] = useState({ name: "", phone: "", project: "" });
+  const [form, setForm] = useState({ name: "", phone: "", niche: "", budget: "" });
   const handleSubmit = (e: React.FormEvent) => { e.preventDefault(); setSubmitted(true); };
+
+  const inputCls = "w-full bg-white border border-[var(--brand-border)] rounded-lg pl-10 pr-4 font-golos text-sm text-[var(--brand-dark)] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition";
 
   return (
     <section id="contact-form" className="section-padding bg-[var(--brand-gray)]">
@@ -651,7 +879,8 @@ function ContactForm() {
                       placeholder="Ваше имя"
                       value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
-                      className="w-full bg-white border border-[var(--brand-border)] rounded-lg pl-10 pr-4 py-3 font-golos text-sm text-[var(--brand-dark)] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition"
+                      className={inputCls}
+                      style={{ height: 48 }}
                     />
                   </div>
                 </div>
@@ -669,35 +898,52 @@ function ContactForm() {
                       placeholder="+7 (999) 000-00-00"
                       value={form.phone}
                       onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                      className="w-full bg-white border border-[var(--brand-border)] rounded-lg pl-10 pr-4 py-3 font-golos text-sm text-[var(--brand-dark)] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition"
+                      className={inputCls}
+                      style={{ height: 48 }}
                     />
                   </div>
                 </div>
 
-                {/* Тип проекта */}
+                {/* Ниша бизнеса */}
                 <div className="flex flex-col gap-1.5">
-                  <label className="font-montserrat font-semibold text-xs text-[var(--brand-muted)] uppercase tracking-wide">Тип проекта</label>
-                  <div className="flex gap-3 flex-wrap">
-                    {["Услуги", "Инфобизнес", "B2B"].map((opt) => (
-                      <button
-                        key={opt}
-                        type="button"
-                        onClick={() => setForm({ ...form, project: opt })}
-                        className={`font-golos text-sm px-4 py-2 rounded-lg border transition-all duration-200 ${
-                          form.project === opt
-                            ? "bg-[var(--brand-blue)] text-white border-[var(--brand-blue)]"
-                            : "bg-white text-[var(--brand-muted)] border-[var(--brand-border)] hover:border-blue-300"
-                        }`}
-                      >
-                        {opt}
-                      </button>
-                    ))}
+                  <label className="font-montserrat font-semibold text-xs text-[var(--brand-muted)] uppercase tracking-wide">Ниша бизнеса</label>
+                  <div className="relative">
+                    <div className="absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none">
+                      <Icon name="Briefcase" size={16} className="text-gray-400" />
+                    </div>
+                    <input
+                      type="text"
+                      placeholder="Например: стоматология, онлайн-курсы..."
+                      value={form.niche}
+                      onChange={(e) => setForm({ ...form, niche: e.target.value })}
+                      className={inputCls}
+                      style={{ height: 48 }}
+                    />
+                  </div>
+                </div>
+
+                {/* Бюджет проекта */}
+                <div className="flex flex-col gap-1.5">
+                  <label className="font-montserrat font-semibold text-xs text-[var(--brand-muted)] uppercase tracking-wide">Бюджет проекта</label>
+                  <div className="relative">
+                    <div className="absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none">
+                      <Icon name="Wallet" size={16} className="text-gray-400" />
+                    </div>
+                    <input
+                      type="text"
+                      placeholder="Например: 50 000 – 70 000 ₽"
+                      value={form.budget}
+                      onChange={(e) => setForm({ ...form, budget: e.target.value })}
+                      className={inputCls}
+                      style={{ height: 48 }}
+                    />
                   </div>
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full bg-[var(--brand-blue)] text-white font-montserrat font-bold text-base py-4 rounded-xl shadow-lg shadow-blue-200 hover:bg-blue-700 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
+                  style={{ height: 52 }}
+                  className="w-full bg-[var(--brand-blue)] text-white font-montserrat font-bold text-base rounded-xl shadow-lg shadow-blue-200 hover:bg-blue-700 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
                 >
                   Получить консультацию
                 </button>
@@ -854,6 +1100,7 @@ export default function Index() {
       <Services />
       <WhyLanding />
       <Portfolio />
+      <LandingStructure />
       <Problems />
       <Advantages />
       <Process />
